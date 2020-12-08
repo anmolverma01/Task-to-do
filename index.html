@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-----------Fonts----------------------------->	
+	<link href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Quicksand:200,400" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Goldman&&effect=emboss|3Dfloat" rel="stylesheet">
+<!---------------------Favicon------------------>
+
+<title>
+    To-Do-Task
+</title>
+<!---------------Icons------------------------>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-----------------Styling----------------------------->
+<style type="text/css">
+#branding
+{
+   display:block;
+   border-bottom:5px solid #1a75ff;
+    margin-left:2%;
+    margin-right:2%;
+    margin-top:10px;
+    padding:2%;
+    width:92%;
+    position:relative;
+    height:60px;
+    font-size:25px;
+    font-family:quicksand;
+    font-weight:600;
+    letter-spacing: 5px;
+    color:white;
+    text-align: center;
+    background-image: linear-gradient(to right, #333333,#1a1a1a);
+    border-radius:10px 10px 0px 0px;
+}
+#text
+{
+     display:block;
+   border:none;
+    float:left;
+    margin-left:2%;
+    margin-right:2%;
+    margin-top:10px;
+    padding:2%;
+    width:92%;
+    font-size: 25px;
+    font-family: quicksand;
+    text-align:center;
+
+}
+#taskarea
+{
+    float:left;
+    margin-left:2%;
+    margin-right:2%;
+    margin-top:10px;
+    padding:2%;
+    width:40%;
+    text-align:center;
+    background-image: linear-gradient(to right, #333333,#1a1a1a);
+    border-radius:0px 0px 10px 10px;
+    border-top:5px solid #1a75ff;
+    height:auto;
+    font-size:25px;
+    font-family:quicksand;
+    color:white;
+
+}
+#completearea
+{
+    font-family:quicksand;
+    font-size:25px;
+    float:right;
+    margin-left:2%;
+    margin-right:2%;
+    margin-top:10px;
+    padding:2%;
+    width:40%;
+    text-align:center;
+    background-image: linear-gradient(to right, #333333,#1a1a1a);
+    border-radius:0px 0px 10px 10px;
+    border-top:5px solid #1a75ff;
+    height:auto;
+}
+@media screen and (max-width:800px)
+{
+	#completearea,#taskarea
+{
+	width:92%;
+}
+}
+#filltask
+{
+     border:none;
+    border-bottom:2px solid #1a75ff;
+    border-top:2px solid #1a75ff;
+    outline:none;
+    margin-left:20%;
+    margin-right:20%;
+    margin-top:10px;
+    padding:2%;
+    width:55%;
+    font-size:20px;
+    color:#1a1a1a;
+    height:60px;
+    text-align:left;
+    resize: none;
+}
+#taskbtn
+{
+    display:block;
+    border:none;
+    outline:none;
+	margin-left:33%;
+    margin-right:33%;
+    margin-top:20px;
+    padding:5px;
+    width:40%;
+    font-size:20px;
+    color:#cccccc;
+    height:40px;
+    text-align:center;
+    background-image: linear-gradient(to top, #1a1a1a,#333333);
+    cursor:pointer;
+    border-radius:3px;
+}
+#taskbtn:hover
+{
+    color:#4d4d4d;
+    transition: 0.5s;
+    background-image: inherit;
+}
+.task,.comp
+{
+	color:white;
+	padding:10px;
+	margin:10px;
+	border:2px solid white;
+	background-color:#4d4d4d;
+	font-size:15px;
+	font-family:quicksand;
+	font-weight: bold;
+	letter-spacing:5px;
+	text-align: left;
+	text-transform:capitalize;
+	cursor: pointer;
+}
+.comp
+{
+	text-decoration: line-through;
+
+}
+.taskh,.comph
+{
+	color:white;
+	padding-bottom:2px;
+	margin:0px;
+	border-bottom:2px solid white;
+	background-color:inherit;
+	font-size:25px;
+	font-family:sans-serif;
+	font-weight: bold;
+	letter-spacing:5px;
+}
+	#edit
+	{
+		opacity:1;
+		display:;
+		border:1px solid #1a1a1a;
+		background-color: white;
+		cursor:pointer;
+		padding:2px;
+		font-size:15px;
+		color:#1a1a1a;
+		font-weight:600;
+		font-family: ubuntu;
+		font-stretch: extra-condensed;
+		outline: none;
+		border-radius: 2px;
+	}
+	#edit:hover
+	{
+		color:white;
+		border:2px solid white;
+		background-color: inherit;
+	}
+	.warn
+	{
+		font-size:15px;
+		color:white;
+		padding: 10px;
+	}
+	li
+	{
+		outline:none;
+		border-bottom:2px solid grey;
+	}
+	#alldone
+	{
+		color:#00ff00;
+		cursor:pointer;
+	}
+	#alldone:hover
+	{
+		color:white;
+	}
+	#calldone
+	{
+		color:#00ff00;
+		cursor:pointer;
+	}
+	#calldone:hover
+	{
+		color:white;
+	}
+</style>
+<!------------------------------content------------>
+</head>
+<body>
+<div id="branding">To-Do-Task</div>
+    <div id="text">Let's arrange our tasks here!</div>
+    <div  id="time"><textarea id="filltask" placeholder="Your Task Here..." onfocus="this.placeholder=''" onblur="this.placeholder='Your Task Here...'"></textarea></div>
+    <button id="taskbtn">Assign Task</button>
+<div class="alltask">
+<div id="taskarea">
+	<div id="task1" class="taskh">TASK IN LINE <i class="fas fa-clipboard-list"></i>&nbsp;<i id="alldone" class="fas fa-check-circle"></i></div>
+	<span class="warn">Click to edit and Double Click if Completed</span>
+	<ol><div id="task2" class="task"></div></ol>
+</div>
+<div id="completearea">
+	<div id="comp1" class="comph">COMPLETED <i class="fas fa-clipboard-check"></i>&nbsp;<i id="calldone" class="fas fa-check-circle"></i></div>
+	<span class="warn">Click to remove</span>
+	<ol><div id="comp2" class="comp"></div></ol>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+var l1,mn;
+var d=new Date().toLocaleDateString();
+$('#branding').html("Task-to-do: " + d);
+$('#taskbtn').click(function() {
+    const s = $('#filltask').val();
+    var t1 = $('#task2').append(
+    	function(){
+    		$('#filltask').val('');
+    	$('#task2').append('<li contenteditable="true">'+"&nbsp;"+ s + '</li> '+"<br>");
+    	});
+});
+$(document).on('dblclick','li', function(){
+       
+       var b= $(this).remove();
+       $("#comp2").append(b);
+
+      });
+$('#comp2').on('click','li', function(){
+        $(this).fadeOut('slow') 
+      });
+      
+      $('#filltask').focus(function() {
+        $(this).val('');
+      });
+$('#alldone').click(function(){
+	$('#task2').empty();
+});  
+$('#calldone').click(function(){
+	$('#comp2').empty();
+});      
+</script>
+</html>
